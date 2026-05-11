@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đề Cương Luận Văn - Lê Ngọc Hân</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap');
+:root{--primary:#0f172a;--accent:#f97316;--accent2:#06b6d4;--accent3:#8b5cf6;--bg:#fafafa;--card:#fff;--text:#334155;--text-light:#94a3b8;--shadow:0 4px 24px rgba(0,0,0,.06);--shadow-lg:0 12px 48px rgba(0,0,0,.1)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:var(--bg);line-height:1.7}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,23,42,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);transition:.3s}
+.nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.3)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-brand{color:#fff;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase}
+.nav-brand span{color:var(--accent)}
+.nav-links{display:flex;gap:6px}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:12px;font-weight:500;padding:6px 12px;border-radius:20px;transition:.25s;text-transform:uppercase;letter-spacing:.5px}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.1)}
+.progress-bar{position:fixed;top:60px;left:0;height:3px;z-index:99;background:linear-gradient(90deg,#f97316,#ef4444);transition:width .15s;width:0}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0f172a 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-particles{position:absolute;inset:0;overflow:hidden}
+.particle{position:absolute;width:4px;height:4px;border-radius:50%;opacity:.3;animation:float 8s infinite ease-in-out}
+@keyframes float{0%,100%{transform:translateY(0) scale(1);opacity:.3}50%{transform:translateY(-40px) scale(1.5);opacity:.6}}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:900px}
+.hero-badge{display:inline-block;padding:6px 20px;border-radius:20px;font-size:12px;font-weight:600;color:var(--accent);background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.25);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px}
+.hero h1{font-family:'Playfair Display',serif;color:#fff;font-size:clamp(28px,5vw,52px);line-height:1.2;margin-bottom:16px;font-weight:700}
+.hero h1 .hl{background:linear-gradient(90deg,#f97316,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{color:rgba(255,255,255,.7);font-size:clamp(14px,2vw,20px);max-width:700px;margin:0 auto 40px;line-height:1.6}
+.hero-meta{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.meta-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:13px}
+.meta-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);animation:bounce 2s infinite;color:rgba(255,255,255,.4)}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
+.section{padding:80px 24px;max-width:1000px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:48px}
+.section-tag{display:inline-block;padding:4px 14px;border-radius:12px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.tag-orange{color:var(--accent);background:rgba(249,115,22,.08)}
+.tag-blue{color:var(--accent2);background:rgba(6,182,212,.08)}
+.tag-purple{color:var(--accent3);background:rgba(139,92,246,.08)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,38px);color:var(--primary);margin-bottom:8px}
+.section-desc{color:var(--text-light);font-size:15px;max-width:600px;margin:0 auto}
+.card{background:var(--card);border-radius:16px;padding:28px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);margin-bottom:20px;transition:.3s}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.card-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.card-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.icon-orange{background:rgba(249,115,22,.1)}.icon-blue{background:rgba(6,182,212,.1)}.icon-purple{background:rgba(139,92,246,.1)}.icon-red{background:rgba(239,68,68,.1)}.icon-green{background:rgba(34,197,94,.1)}
+.card-title{font-size:17px;font-weight:600;color:var(--primary)}
+.card p{font-size:14px;color:var(--text);line-height:1.8;margin-bottom:8px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.accordion{margin-bottom:12px}
+.accordion-btn{width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:16px 20px;cursor:pointer;font-size:14px;font-weight:600;color:var(--primary);transition:.3s;text-align:left}
+.accordion-btn:hover{border-color:var(--accent)}
+.accordion-btn .arrow{transition:transform .3s;font-size:12px;color:var(--text-light)}
+.accordion-btn.active .arrow{transform:rotate(180deg);color:var(--accent)}
+.accordion-content{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;background:var(--card);border-radius:0 0 12px 12px;padding:0 20px;border:1px solid transparent;border-top:0}
+.accordion-content.open{max-height:3000px;padding:16px 20px;border-color:rgba(0,0,0,.06)}
+.accordion-content p{font-size:13.5px;margin-bottom:10px}
+.stat-row{display:flex;gap:16px;flex-wrap:wrap;margin:24px 0}
+.stat{flex:1;min-width:120px;text-align:center;padding:20px 16px;background:var(--card);border-radius:12px;box-shadow:var(--shadow)}
+.stat-value{font-size:28px;font-weight:800;margin-bottom:4px;background:linear-gradient(90deg,#f97316,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:12px;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px}
+.timeline{position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2))}
+.timeline-item{position:relative;margin-bottom:28px}
+.timeline-dot{position:absolute;left:-27px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid #fff;box-shadow:0 0 0 2px var(--accent)}
+.timeline-title{font-size:15px;font-weight:600;color:var(--primary);margin-bottom:4px}
+.timeline-text{font-size:13.5px;color:var(--text)}
+.gantt-container{background:var(--card);border-radius:16px;padding:28px;box-shadow:var(--shadow);overflow-x:auto;margin:24px 0}
+.gantt-row{display:grid;grid-template-columns:200px 1fr;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+.gantt-label{font-size:12px;font-weight:500;color:var(--text)}
+.gantt-bars{display:flex;gap:2px;height:24px}
+.gantt-cell{flex:1;border-radius:4px;min-width:30px;transition:.3s;position:relative;cursor:pointer;height:24px}
+.gantt-cell.active{box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.gantt-cell.active:hover{transform:scaleY(1.3)}
+.gantt-cell .tip{display:none;position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;font-size:10px;padding:4px 8px;border-radius:6px;white-space:nowrap;margin-bottom:4px;z-index:10}
+.gantt-cell.active:hover .tip{display:block}
+.gantt-months{display:flex;gap:2px;margin-left:212px;margin-bottom:8px}
+.gantt-months span{flex:1;text-align:center;font-size:10px;color:var(--text-light);font-weight:500;min-width:30px}
+.risk-table{width:100%;border-collapse:separate;border-spacing:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin:24px 0}
+.risk-table th{background:var(--primary);color:#fff;padding:12px 16px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;text-align:left}
+.risk-table td{padding:12px 16px;font-size:13px;border-bottom:1px solid rgba(0,0,0,.04);background:var(--card);vertical-align:top}
+.risk-table tr:hover td{background:rgba(249,115,22,.03)}
+.risk-badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.risk-low{background:rgba(34,197,94,.1);color:#16a34a}.risk-medium{background:rgba(249,115,22,.1);color:#ea580c}.risk-high{background:rgba(239,68,68,.1);color:#dc2626}
+.formula-block{background:linear-gradient(135deg,rgba(15,23,42,.03),rgba(6,182,212,.05));border:1px solid rgba(6,182,212,.15);border-radius:12px;padding:20px;margin:16px 0;font-family:'Courier New',monospace}
+.formula-main{font-size:18px;text-align:center;color:var(--primary);font-weight:700;margin-bottom:12px}
+.formula-desc{font-size:12.5px;color:var(--text);font-family:'Inter',sans-serif;line-height:1.8}
+.formula-desc .v{display:inline-block;background:rgba(139,92,246,.08);color:var(--accent3);padding:1px 6px;border-radius:4px;font-family:'Courier New',monospace;font-size:11px;font-weight:600}
+.abbr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.abbr-item{display:flex;gap:8px;padding:10px 14px;background:var(--card);border-radius:10px;border:1px solid rgba(0,0,0,.04);font-size:13px;transition:.2s}
+.abbr-item:hover{border-color:var(--accent2)}
+.abbr-code{font-weight:700;color:var(--accent);font-family:monospace;flex-shrink:0}
+.abbr-full{color:var(--text)}
+.ref-item{padding:16px 20px;background:var(--card);border-radius:12px;margin-bottom:10px;border:1px solid rgba(0,0,0,.04);transition:.3s;cursor:pointer}
+.ref-item:hover{border-color:var(--accent2)}
+.ref-item .ref-author{font-size:12px;color:var(--accent2);font-weight:600;margin-bottom:4px}
+.ref-item .ref-title{font-size:14px;font-weight:500;color:var(--primary);margin-bottom:4px}
+.ref-item .ref-summary{font-size:12.5px;color:var(--text-light);line-height:1.6;max-height:0;overflow:hidden;transition:.3s}
+.ref-item.expanded .ref-summary{max-height:200px;margin-top:8px}
+.tabs{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap}
+.tab-btn{padding:8px 16px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid rgba(0,0,0,.08);background:var(--card);color:var(--text);transition:.25s;text-transform:uppercase;letter-spacing:.5px}
+.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.tab-content{display:none}.tab-content.active{display:block}
+.chapter-card{display:flex;gap:16px;padding:20px;background:var(--card);border-radius:12px;border:1px solid rgba(0,0,0,.04);margin-bottom:10px;transition:.3s}
+.chapter-card:hover{border-color:var(--accent);transform:translateX(4px)}
+.chapter-num{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0}
+.chapter-info{flex:1}.chapter-name{font-size:14px;font-weight:600;color:var(--primary)}
+.flow-steps{display:flex;flex-direction:column;gap:16px}
+.flow-step{display:flex;gap:16px;align-items:flex-start;padding:20px;background:var(--card);border-radius:14px;border:1px solid rgba(0,0,0,.04);transition:.3s;cursor:pointer}
+.flow-step:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.flow-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex-shrink:0;background:linear-gradient(90deg,#f97316,#ef4444);color:#fff}
+.flow-detail{font-size:12.5px;color:var(--text);line-height:1.7;margin-top:6px;max-height:0;overflow:hidden;transition:.3s}
+.flow-step.expanded .flow-detail{max-height:300px}
+.flow-title{font-size:14px;font-weight:600;color:var(--primary)}
+.footer{text-align:center;padding:40px 24px;color:var(--text-light);font-size:12px;border-top:1px solid rgba(0,0,0,.06)}
+.back-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:.3s;z-index:50}
+.back-top.visible{display:flex}.back-top:hover{transform:translateY(-3px)}
+@media(max-width:768px){.grid-2,.grid-3{grid-template-columns:1fr}.nav-links{display:none}.hero-meta{flex-direction:column;align-items:center}.gantt-row{grid-template-columns:140px 1fr}.stat-row{gap:10px}.stat{min-width:90px;padding:14px 10px}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">UHI <span>Research</span></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#hero" class="active">Trang chủ</a>
+      <a href="#intro">Mở đầu</a>
+      <a href="#theory">Lý thuyết</a>
+      <a href="#method">Phương pháp</a>
+      <a href="#plan">Tiến độ</a>
+      <a href="#refs">Tài liệu</a>
+    </div>
+  </div>
+</nav>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🎓 Luận văn Thạc sĩ Địa lý học</div>
+    <h1>Nghiên cứu <span class="hl">Đảo Nhiệt Đô Thị</span><br>tại TP. Hồ Chí Minh</h1>
+    <p class="subtitle">Bằng công nghệ viễn thám kết hợp Machine Learning — tiếp cận toàn diện dự báo cường độ UHI thông qua tích hợp ảnh viễn thám đa nguồn và thuật toán Random Forest</p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-dot"></span>Lê Ngọc Hân</div>
+      <div class="meta-item"><span class="meta-dot"></span>MSHV: 242831050103</div>
+      <div class="meta-item"><span class="meta-dot"></span>ĐHQG-HCM</div>
+    </div>
+  </div>
+  <div class="scroll-hint">▼</div>
+</section>
+
+<!-- ABBREVIATIONS -->
+<section class="section" id="abbr">
+  <div class="section-header">
+    <div class="section-tag tag-orange">Danh mục từ viết tắt</div>
+    <h2 class="section-title">Thuật ngữ chuyên ngành</h2>
+  </div>
+  <div class="abbr-grid">
+    <div class="abbr-item"><span class="abbr-code">UHI</span><span class="abbr-full">Urban Heat Island — Đảo nhiệt đô thị</span></div>
+    <div class="abbr-item"><span class="abbr-code">SUHI</span><span class="abbr-full">Surface UHI — Đảo nhiệt bề mặt</span></div>
+    <div class="abbr-item"><span class="abbr-code">LST</span><span class="abbr-full">Land Surface Temperature</span></div>
+    <div class="abbr-item"><span class="abbr-code">NDVI</span><span class="abbr-full">Normalized Difference Vegetation Index</span></div>
+    <div class="abbr-item"><span class="abbr-code">NDBI</span><span class="abbr-full">Normalized Difference Built-up Index</span></div>
+    <div class="abbr-item"><span class="abbr-code">NDWI</span><span class="abbr-full">Normalized Difference Water Index</span></div>
+    <div class="abbr-item"><span class="abbr-code">ISA</span><span class="abbr-full">Impervious Surface Area</span></div>
+    <div class="abbr-item"><span class="abbr-code">RF</span><span class="abbr-full">Random Forest</span></div>
+    <div class="abbr-item"><span class="abbr-code">GEE</span><span class="abbr-full">Google Earth Engine</span></div>
+    <div class="abbr-item"><span class="abbr-code">GIS</span><span class="abbr-full">Geographic Information System</span></div>
+    <div class="abbr-item"><span class="abbr-code">ML</span><span class="abbr-full">Machine Learning</span></div>
+    <div class="abbr-item"><span class="abbr-code">RMSE</span><span class="abbr-full">Root Mean Square Error</span></div>
+    <div class="abbr-item"><span class="abbr-code">SCA</span><span class="abbr-full">Single-Channel Algorithm</span></div>
+    <div class="abbr-item"><span class="abbr-code">SWA</span><span class="abbr-full">Split-Window Algorithm</span></div>
+    <div class="abbr-item"><span class="abbr-code">RTE</span><span class="abbr-full">Radiative Transfer Equation</span></div>
+    <div class="abbr-item"><span class="abbr-code">SUHII</span><span class="abbr-full">Surface UHI Intensity</span></div>
+  </div>
+</section>
+
+<!-- INTRODUCTION -->
+<section class="section" id="intro">
+  <div class="section-header">
+    <div class="section-tag tag-blue">I. Mở đầu</div>
+    <h2 class="section-title">Tính cấp thiết của đề tài</h2>
+    <p class="section-desc">Hiện tượng đảo nhiệt đô thị — thách thức môi trường nghiêm trọng tại các đô thị nhiệt đới</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-value">3-11°C</div><div class="stat-label">Chênh lệch nhiệt UHI ban ngày</div></div>
+    <div class="stat"><div class="stat-value">0.5-5%</div><div class="stat-label">Tăng năng lượng mỗi 1°C</div></div>
+    <div class="stat"><div class="stat-value">9.3M+</div><div class="stat-label">Dân số TPHCM (2022)</div></div>
+    <div class="stat"><div class="stat-value">4400+</div><div class="stat-label">Mật độ người/km²</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-icon icon-orange">🔥</div><div class="card-title">Vì sao UHI nguy hiểm?</div></div>
+    <p>Đảo nhiệt đô thị (UHI) là hiện tượng khí hậu vi mô — sự gia tăng nhiệt độ đáng kể trong các khu vực đô thị so với vùng nông thôn xung quanh. Nhiệt độ ban ngày ở đô thị Hoa Kỳ có thể cao hơn 0.5°C đến 4°C, ban đêm cao hơn 1°C đến 3°C. Tại các khu đô thị phát triển cao, nhiệt độ buổi chiều có thể vượt 3°C đến 11°C.</p>
+    <p><strong>Tác động tiêu cực:</strong> Ô nhiễm không khí tăng (ozôn mặt đất, hạt mịn, mưa axit) · Nhu cầu điện điều hòa tăng mạnh · Nguy cơ bệnh liên quan nhiệt (kiệt sức, đột quỵ) · Nhiệt độ nước mưa chảy vào sông gây ảnh hưởng thủy sinh</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-icon icon-blue">🎯</div><div class="card-title">Câu hỏi nghiên cứu</div></div>
+    <p><strong>CQ1:</strong> Các yếu tố đô thị và môi trường nào có ảnh hưởng đáng kể đến cường độ UHI tại TPHCM?</p>
+    <p><strong>CQ2:</strong> Mô hình học máy có thể dự báo cường độ UHI tại TPHCM với độ chính xác như thế nào khi sử dụng dữ liệu viễn thám?</p>
+  </div>
+
+  <h3 style="margin:32px 0 16px;font-size:18px;color:var(--primary)">Mục tiêu nghiên cứu</h3>
+  <div class="flow-steps">
+    <div class="flow-step" onclick="this.classList.toggle('expanded')">
+      <div class="flow-num">1</div>
+      <div><div class="flow-title">Xây dựng cơ sở dữ liệu đa nguồn</div>
+      <div class="flow-detail">Sử dụng Google Earth Engine API, USGS Landsat Collection API, Copernicus Sentinel Hub API để tự động truy xuất, tính toán và trích xuất các thông số viễn thám (Landsat, Sentinel) và dữ liệu phụ trợ (khí tượng, địa lý).</div></div>
+    </div>
+    <div class="flow-step" onclick="this.classList.toggle('expanded')">
+      <div class="flow-num">2</div>
+      <div><div class="flow-title">Phát triển quy trình tính toán UHI tự động</div>
+      <div class="flow-detail">Ứng dụng công cụ phân tích viễn thám tự động để tính toán LST, NDVI, NDBI và cường độ UHI; thuật toán ML (Random Forest) hiệu chỉnh kết quả và so sánh độ chính xác giữa các phương pháp.</div></div>
+    </div>
+    <div class="flow-step" onclick="this.classList.toggle('expanded')">
+      <div class="flow-num">3</div>
+      <div><div class="flow-title">Đánh giá và xác nhận mô hình</div>
+      <div class="flow-detail">Đánh giá hiệu suất bằng các chỉ số thống kê và hình ảnh, phân tích độ nhạy và giải thích mô hình (SHAP) để xác định các yếu tố chính ảnh hưởng đến UHI.</div></div>
+    </div>
+    <div class="flow-step" onclick="this.classList.toggle('expanded')">
+      <div class="flow-num">4</div>
+      <div><div class="flow-title">Cung cấp thông tin hỗ trợ quy hoạch</div>
+      <div class="flow-detail">Cơ sở khoa học cho nhà quy hoạch và hoạch định chính sách — chuyển đổi từ tiếp cận phản ứng (quan sát UHI) sang tiếp cận chủ động (dự đoán UHI tương lai).</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THEORY -->
+<section class="section" id="theory">
+  <div class="section-header">
+    <div class="section-tag tag-purple">II. Tổng quan nghiên cứu</div>
+    <h2 class="section-title">Cơ sở lý thuyết</h2>
+    <p class="section-desc">Ba trụ cột tích hợp: Lý thuyết UHI · Công nghệ Viễn thám · Khoa học Học máy</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header"><div class="card-icon icon-orange">🌍</div><div class="card-title">Nghiên cứu quốc tế</div></div>
+      <p>Phát triển mạnh từ 1970 với viễn thám và học máy. Các mô hình WRF-Urban, ENVI-met, thuật toán ML/DL dự báo UHI và phân tích mối quan hệ phi tuyến tính. Đánh giá tác động đến sức khỏe, năng lượng, không khí và đa dạng sinh học.</p>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-icon icon-blue">🇻🇳</div><div class="card-title">Nghiên cứu tại Việt Nam</div></div>
+      <p>Tập trung SUHI bằng Landsat. Mối tương quan mạnh giữa LST và NDVI/NDBI/ISA. Cường độ SUHI gia tăng cùng đô thị hóa. <strong>Hạn chế:</strong> chưa ứng dụng ML tiên tiến, thiếu kết nối nghiên cứu→quy hoạch.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <div class="card-header"><div class="card-icon icon-red">🌡️</div><div class="card-title">UHI tại TPHCM — Dữ liệu nổi bật</div></div>
+    <p>Chênh lệch nhiệt độ đô thị—nông thôn lên đến <strong>10–12°C</strong> ban ngày. LST khu vực xây dựng vượt 30°C, công viên và mặt nước 23–25°C. Dân số tăng từ 7.4M (2010) lên 9.3M (2022), mật độ nội thành vượt 40,000–50,000 người/km².</p>
+    <p>Tỷ lệ tử vong quy đổi do UHI: <strong>0.42%</strong>, chiếm 30% tổng ca tử vong liên quan nhiệt.</p>
+  </div>
+
+  <h3 style="margin:32px 0 16px;font-size:18px;color:var(--primary)">Khoảng trống nghiên cứu & Đóng góp</h3>
+  <div class="grid-2">
+    <div class="card" style="border-left:3px solid #ef4444">
+      <div class="card-title" style="margin-bottom:12px;color:#ef4444">❌ Khoảng trống</div>
+      <p>• Thiếu mô hình dự báo UHI toàn diện</p>
+      <p>• Chưa khai thác ML tiên tiến (ensemble, SHAP)</p>
+      <p>• Thiếu phân tích độ nhạy và giải thích mô hình</p>
+      <p>• Chưa kết nối nghiên cứu→ứng dụng quy hoạch</p>
+    </div>
+    <div class="card" style="border-left:3px solid #22c55e">
+      <div class="card-title" style="margin-bottom:12px;color:#22c55e">✅ Đóng góp luận văn</div>
+      <p>• Mô hình dự báo UHI dựa trên RF + viễn thám đa nguồn</p>
+      <p>• Phân tích SHAP xác định yếu tố ảnh hưởng</p>
+      <p>• Giải pháp quy hoạch dựa trên bằng chứng khoa học</p>
+      <p>• Bộ dữ liệu và phương pháp luận tham khảo</p>
+    </div>
+  </div>
+
+  <h3 style="margin:32px 0 16px;font-size:18px;color:var(--primary)">Khung định hướng nghiên cứu</h3>
+  <div class="grid-3">
+    <div class="card" style="text-align:center;border-top:3px solid var(--accent)">
+      <div style="font-size:32px;margin-bottom:8px">🏛️</div>
+      <div class="card-title">Lý thuyết UHI</div>
+      <p style="font-size:12.5px">Cân bằng năng lượng bề mặt, đặc tính nhiệt vật liệu, vai trò thảm thực vật, hình thái đô thị</p>
+    </div>
+    <div class="card" style="text-align:center;border-top:3px solid var(--accent2)">
+      <div style="font-size:32px;margin-bottom:8px">🛰️</div>
+      <div class="card-title">Viễn thám</div>
+      <p style="font-size:12.5px">Landsat, Sentinel-2/3 → LST, NDVI, NDBI, ISA, đặc điểm hình thái đô thị</p>
+    </div>
+    <div class="card" style="text-align:center;border-top:3px solid var(--accent3)">
+      <div style="font-size:32px;margin-bottom:8px">🤖</div>
+      <div class="card-title">Học máy</div>
+      <p style="font-size:12.5px">Random Forest dự báo UHI, SHAP giải thích mô hình, phát hiện mối quan hệ phi tuyến</p>
+    </div>
+  </div>
+</section>
+
+<!-- METHODS -->
+<section class="section" id="method">
+  <div class="section-header">
+    <div class="section-tag tag-orange">III. Phương pháp nghiên cứu</div>
+    <h2 class="section-title">Phương pháp & Công cụ</h2>
+  </div>
+
+  <div class="tabs" id="methodTabs">
+    <button class="tab-btn active" onclick="switchTab('data',this)">Dữ liệu</button>
+    <button class="tab-btn" onclick="switchTab('lst',this)">Tính LST</button>
+    <button class="tab-btn" onclick="switchTab('indices',this)">Chỉ số VT</button>
+    <button class="tab-btn" onclick="switchTab('ml',this)">Học máy</button>
+    <button class="tab-btn" onclick="switchTab('eval',this)">Đánh giá</button>
+  </div>
+
+  <!-- Data Tab -->
+  <div class="tab-content active" id="tab-data">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header"><div class="card-icon icon-orange">🛰️</div><div class="card-title">Landsat (TM/ETM+/OLI-TIRS)</div></div>
+        <p>Độ phân giải 30m quang học, 100/60/30m nhiệt. Lọc mây &lt;10%, mùa khô. GEE API / USGS Collection 2 API tự động truy xuất.</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-icon icon-blue">🔭</div><div class="card-title">Sentinel-2 (MSI)</div></div>
+        <p>Độ phân giải 10-60m, 13 dải phổ. Phân tích lớp phủ đất chi tiết. GEE API / Sentinel Hub Process API tính toán trực tiếp trên cloud.</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-icon icon-purple">🌡️</div><div class="card-title">Sentinel-3 (SLSTR)</div></div>
+        <p>LST 500m, độ phân giải thời gian hàng ngày. Bổ sung và kiểm chứng kết quả LST từ Landsat.</p>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-icon icon-green">📊</div><div class="card-title">Dữ liệu phụ trợ</div></div>
+        <p>Khí tượng (nhiệt độ, độ ẩm, gió) · DEM (SRTM/ASTER) · Bản đồ hành chính · Lớp phủ đất · Mật độ dân số</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LST Tab -->
+  <div class="tab-content" id="tab-lst">
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">🔬 Phương trình truyền bức xạ (RTE) — Chính xác nhất <span class="arrow">▼</span></button>
+      <div class="accordion-content">
+        <div class="formula-block">
+          <div class="formula-main">Lλ = ε · B(Ts) · τ + L↑ + (1 − ε) · L↓ · τ</div>
+          <div class="formula-desc">
+            <span class="v">Lλ</span> Bức xạ tại cảm biến · <span class="v">ε</span> Độ phát xạ bề mặt · <span class="v">B(Ts)</span> Bức xạ vật thể đen · <span class="v">τ</span> Độ truyền qua khí quyển · <span class="v">L↑</span> Bức xạ khí quyển đi lên · <span class="v">L↓</span> Bức xạ khí quyển đi xuống<br>
+            ⚠️ Yêu cầu thông số khí quyển chi tiết (MODTRAN/LOWTRAN). Phức tạp nhưng chính xác — dùng làm phương pháp tham chiếu.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">📐 Thuật toán cửa sổ đơn (SCA) — Đơn giản <span class="arrow">▼</span></button>
+      <div class="accordion-content">
+        <div class="formula-block">
+          <div class="formula-main">Ts = Tb / [1 + (λ · Tb / ρ) · ln(ε)]</div>
+          <div class="formula-desc">
+            <span class="v">Ts</span> Nhiệt độ bề mặt đất · <span class="v">Tb</span> Nhiệt độ sáng · <span class="v">λ</span> Bước sóng hiệu dụng · <span class="v">ρ</span> 1.438×10⁻² m·K · <span class="v">ε</span> Độ phát xạ bề mặt<br>
+            Dùng khi chỉ có 1 kênh nhiệt (Landsat 5/7). Độ chính xác phụ thuộc ước tính thông số khí quyển.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">⚡ Thuật toán cửa sổ đôi (SWA) — Phổ biến nhất <span class="arrow">▼</span></button>
+      <div class="accordion-content">
+        <div class="formula-block">
+          <div class="formula-main">Ts = Tb1 + C₁(Tb1 − Tb2) + C₂(Tb1 − Tb2)² + C₃</div>
+          <div class="formula-desc">
+            <span class="v">Tb1, Tb2</span> Nhiệt độ sáng 2 kênh nhiệt · <span class="v">C₁, C₂, C₃</span> Hệ số phụ thuộc độ phát xạ và hơi nước<br>
+            Ít nhạy cảm với lỗi thông số khí quyển. Ưu tiên sử dụng khi có 2 kênh nhiệt (Landsat TIRS Band 10+11).
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <div class="card-header"><div class="card-icon icon-red">📏</div><div class="card-title">Cường độ SUHII</div></div>
+      <div class="formula-block">
+        <div class="formula-main" style="color:var(--accent)">SUHII = LST<sub>đô thị</sub> − LST<sub>nông thôn</sub></div>
+      </div>
+      <p>Khu vực nông thôn tham chiếu: lớp phủ đất tự nhiên (rừng, nông nghiệp), ít ảnh hưởng nhân sinh, khí hậu tương đồng.</p>
+    </div>
+  </div>
+
+  <!-- Indices Tab -->
+  <div class="tab-content" id="tab-indices">
+    <div class="grid-2">
+      <div class="card" style="border-top:3px solid #22c55e">
+        <div class="card-title">🌿 NDVI — Chỉ số thực vật</div>
+        <div class="formula-block" style="margin:12px 0"><div class="formula-main" style="font-size:15px">NDVI = (NIR − Red) / (NIR + Red)</div></div>
+        <p>Giá trị cao → thảm thực vật dày → làm mát. Tương quan <strong>nghịch</strong> mạnh với LST.</p>
+      </div>
+      <div class="card" style="border-top:3px solid #ef4444">
+        <div class="card-title">🏗️ NDBI — Chỉ số xây dựng</div>
+        <div class="formula-block" style="margin:12px 0"><div class="formula-main" style="font-size:15px">NDBI = (SWIR − NIR) / (SWIR + NIR)</div></div>
+        <p>Giá trị cao → mật độ xây dựng cao → hấp thụ/giữ nhiệt. Tương quan <strong>thuận</strong> mạnh với LST.</p>
+      </div>
+      <div class="card" style="border-top:3px solid #06b6d4">
+        <div class="card-title">💧 NDWI — Chỉ số nước</div>
+        <div class="formula-block" style="margin:12px 0"><div class="formula-main" style="font-size:15px">NDWI = (Green − NIR) / (Green + NIR)</div></div>
+        <p>Mặt nước → nhiệt dung lớn, bốc hơi làm mát → LST thấp. Tương quan <strong>nghịch</strong> với LST.</p>
+      </div>
+      <div class="card" style="border-top:3px solid #8b5cf6">
+        <div class="card-title">🧱 ISA — Bề mặt không thấm nước</div>
+        <p>Ước tính qua phân loại ảnh hoặc spectral unmixing. Tỷ lệ bề mặt nhân tạo (đường, vỉa hè, mái nhà). ISA cao → tăng hấp thụ nhiệt, giảm làm mát tự nhiên.</p>
+      </div>
+    </div>
+    <h3 style="margin:24px 0 12px;font-size:16px;color:var(--primary)">Đặc trưng địa lý & khí tượng</h3>
+    <div class="grid-3">
+      <div class="card" style="padding:16px;text-align:center"><div style="font-size:24px;margin-bottom:4px">🏢</div><div style="font-size:12px;font-weight:600">Mật độ xây dựng</div><div style="font-size:11px;color:var(--text-light)">Tỷ lệ diện tích công trình</div></div>
+      <div class="card" style="padding:16px;text-align:center"><div style="font-size:24px;margin-bottom:4px">📏</div><div style="font-size:12px;font-weight:600">Chiều cao TB tòa nhà</div><div style="font-size:11px;color:var(--text-light)">Hiệu ứng hẻm núi đô thị</div></div>
+      <div class="card" style="padding:16px;text-align:center"><div style="font-size:24px;margin-bottom:4px">🌳</div><div style="font-size:12px;font-weight:600">Tỷ lệ không gian xanh</div><div style="font-size:11px;color:var(--text-light)">Giảm nhiệt độ hiệu quả</div></div>
+      <div class="card" style="padding:16px;text-align:center"><div style="font-size:24px;margin-bottom:4px">⛰️</div><div style="font-size:12px;font-weight:600">Độ cao (DEM)</div><div style="font-size:11px;color:var(--text-light)">Ảnh hưởng áp suất & bức xạ</div></div>
+      <div class="card" style="padding:16px;text-align:center"><div style="font-size:24px;margin-bottom:4px">🌊</div><div style="font-size:12px;font-weight:600">Khoảng cách mặt nước</div><div style="font-size:11px;color:var(--text-light)">Hiệu ứng làm mát</div></div>
+      <div class="card" style="padding:16px;text-align:center"><div style="font-size:24px;margin-bottom:4px">💨</div><div style="font-size:12px;font-weight:600">Tốc độ gió</div><div style="font-size:11px;color:var(--text-light)">Tản nhiệt đô thị</div></div>
+    </div>
+  </div>
+
+  <!-- ML Tab -->
+  <div class="tab-content" id="tab-ml">
+    <div class="card">
+      <div class="card-header"><div class="card-icon icon-purple">🌲</div><div class="card-title">Random Forest — Thuật toán chính</div></div>
+      <p><strong>Tại sao chọn RF?</strong></p>
+      <p>✅ Xử lý dữ liệu đa dạng (liên tục + phân loại + phi tuyến)</p>
+      <p>✅ Ít nhạy cảm overfitting (bagging + ngẫu nhiên hóa)</p>
+      <p>✅ Đánh giá tầm quan trọng đặc trưng tự động</p>
+      <p>✅ Xử lý tốt dữ liệu thiếu và nhiễu</p>
+    </div>
+    <div class="grid-2" style="margin-top:16px">
+      <div class="card">
+        <div class="card-title">🔄 Quy trình huấn luyện</div>
+        <p>• Tập huấn luyện 70–80%, kiểm tra 20–30%</p>
+        <p>• <strong>Kiểm định chéo không gian</strong> (Spatial CV)</p>
+        <p>• Grid Search / Random Search tối ưu siêu tham số</p>
+        <p>• XGBoost, LightGBM, SVR so sánh bổ sung</p>
+      </div>
+      <div class="card">
+        <div class="card-title">🧠 Vai trò ML trong nghiên cứu</div>
+        <p>• <strong>Hiệu chỉnh sai số</strong> hệ thống trong kết quả tính toán LST/SUHII</p>
+        <p>• <strong>So sánh</strong> độ chính xác giữa các phương pháp (SCA, SWA, RTE)</p>
+        <p>• <strong>Không phải mô hình chính</strong> — viễn thám tự động tính toán, ML hỗ trợ hiệu chỉnh</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eval Tab -->
+  <div class="tab-content" id="tab-eval">
+    <div class="grid-2">
+      <div class="card" style="text-align:center"><div style="font-size:32px;margin-bottom:8px">📊</div><div class="card-title">R² — Hệ số xác định</div><p>Tỷ lệ phương sai được giải thích. Gần 1 = tốt.</p></div>
+      <div class="card" style="text-align:center"><div style="font-size:32px;margin-bottom:8px">📐</div><div class="card-title">RMSE</div><p>Sai số bình phương trung bình. Nhỏ = tốt.</p></div>
+      <div class="card" style="text-align:center"><div style="font-size:32px;margin-bottom:8px">📏</div><div class="card-title">MAE</div><p>Sai số tuyệt đối trung bình. Ít nhạy cảm ngoại lai.</p></div>
+      <div class="card" style="text-align:center"><div style="font-size:32px;margin-bottom:8px">🔍</div><div class="card-title">SHAP</div><p>Giải thích mô hình — tầm quan trọng từng đặc trưng.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GANTT & RISK -->
+<section class="section" id="plan">
+  <div class="section-header">
+    <div class="section-tag tag-blue">IV. Kế hoạch nghiên cứu</div>
+    <h2 class="section-title">Tiến độ & Rủi ro</h2>
+  </div>
+
+  <div class="gantt-container">
+    <div class="gantt-months"><span>T1</span><span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>T8</span><span>T9</span><span>T10</span><span>T11</span><span>T12</span></div>
+    <div class="gantt-row">
+      <div class="gantt-label">GĐ1: Tổng quan & thiết kế</div>
+      <div class="gantt-bars"><div class="gantt-cell active" style="background:linear-gradient(90deg,#3b82f6,#60a5fa)"><span class="tip">Tổng quan & thiết kế hệ thống</span></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div></div>
+    </div>
+    <div class="gantt-row">
+      <div class="gantt-label">GĐ2: Script GEE API</div>
+      <div class="gantt-bars"><div class="gantt-cell"></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#f97316,#fb923c)"><span class="tip">Script tự động hóa dữ liệu</span></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#f97316,#fb923c)"></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#f97316,#fb923c)"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div></div>
+    </div>
+    <div class="gantt-row">
+      <div class="gantt-label">GĐ3: Tính toán LST, SUHII</div>
+      <div class="gantt-bars"><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#f97316,#fb923c)"><span class="tip">LST, NDVI, NDBI, SUHII tự động</span></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#f97316,#fb923c)"></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#f97316,#fb923c)"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div></div>
+    </div>
+    <div class="gantt-row">
+      <div class="gantt-label">GĐ4: ML hiệu chỉnh</div>
+      <div class="gantt-bars"><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#8b5cf6,#a78bfa)"><span class="tip">ML hiệu chỉnh & so sánh</span></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div></div>
+    </div>
+    <div class="gantt-row">
+      <div class="gantt-label">GĐ5: Phân tích & hoàn thiện</div>
+      <div class="gantt-bars"><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#22c55e,#4ade80)"><span class="tip">GIS, báo cáo & hoàn thiện</span></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#22c55e,#4ade80)"></div><div class="gantt-cell active" style="background:linear-gradient(90deg,#22c55e,#4ade80)"></div><div class="gantt-cell"></div></div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:16px;font-size:11px;color:var(--text-light)"><span>🔵 Tổng quan</span><span>🟠 Ứng dụng</span><span>🟣 ML</span><span>🟢 Hoàn thiện</span></div>
+  </div>
+
+  <!-- Risk Table -->
+  <h3 style="margin:32px 0 16px;font-size:18px;color:var(--primary)">Ma trận rủi ro</h3>
+  <table class="risk-table">
+    <thead><tr><th>Nhóm</th><th>Rủi ro</th><th>Xác suất</th><th>Tác động</th><th>Mức</th><th>Ứng phó</th></tr></thead>
+    <tbody>
+      <tr><td>📦 Dữ liệu</td><td>Ảnh mây cao (>10%) mùa mưa</td><td><span class="risk-badge risk-high">Cao</span></td><td><span class="risk-badge risk-medium">TB</span></td><td><span class="risk-badge risk-medium">TB</span></td><td>Bộ lọc mây GEE; Sentinel-3 LST; composite mùa khô</td></tr>
+      <tr><td>📦 Dữ liệu</td><td>GEE giới hạn quota</td><td><span class="risk-badge risk-low">Thấp</span></td><td><span class="risk-badge risk-high">Cao</span></td><td><span class="risk-badge risk-low">Thấp</span></td><td>Tải trực tiếp USGS/Copernicus; tài khoản Academic</td></tr>
+      <tr><td>⚙️ Kỹ thuật</td><td>Sai số LST do thiếu emissivity</td><td><span class="risk-badge risk-medium">TB</span></td><td><span class="risk-badge risk-high">Cao</span></td><td><span class="risk-badge risk-medium">TB</span></td><td>NDVI-based emissivity; kiểm chứng chéo; ML hiệu chỉnh</td></tr>
+      <tr><td>⚙️ Kỹ thuật</td><td>ML overfitting</td><td><span class="risk-badge risk-low">Thấp</span></td><td><span class="risk-badge risk-medium">TB</span></td><td><span class="risk-badge risk-low">Thấp</span></td><td>Spatial CV; ML chỉ hiệu chỉnh</td></tr>
+      <tr><td>⏰ Thời gian</td><td>Debug API kéo dài</td><td><span class="risk-badge risk-medium">TB</span></td><td><span class="risk-badge risk-medium">TB</span></td><td><span class="risk-badge risk-medium">TB</span></td><td>Buffer 2 tuần; unit test; Git</td></tr>
+      <tr><td>⏰ Thời gian</td><td>Dữ liệu 2025 chưa đủ</td><td><span class="risk-badge risk-medium">TB</span></td><td><span class="risk-badge risk-low">Thấp</span></td><td><span class="risk-badge risk-low">Thấp</span></td><td>Dùng 2024; mở rộng thêm 2010</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Expected Results -->
+  <h3 style="margin:32px 0 16px;font-size:18px;color:var(--primary)">Kết quả dự kiến</h3>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-title">🗺️ Bản đồ LST</div><div class="timeline-text">LST từ Landsat và Sentinel-3 — rõ sự khác biệt nhiệt đô thị/nông thôn, phân bố điểm nóng/lạnh</div></div>
+    <div class="timeline-item"><div class="timeline-dot" style="background:var(--accent2);box-shadow:0 0 0 2px var(--accent2)"></div><div class="timeline-title">🌡️ Bản đồ SUHII</div><div class="timeline-text">Cường độ chênh lệch LST đô thị—nông thôn, xác định các điểm nóng UHI</div></div>
+    <div class="timeline-item"><div class="timeline-dot" style="background:var(--accent3);box-shadow:0 0 0 2px var(--accent3)"></div><div class="timeline-title">🔥 Bản đồ điểm nóng UHI</div><div class="timeline-text">Vùng nguy cơ cao, yếu tố chính gây UHI, phân tích khu vực SUHII cao nhất/thấp nhất</div></div>
+    <div class="timeline-item"><div class="timeline-dot" style="background:#22c55e;box-shadow:0 0 0 2px #22c55e"></div><div class="timeline-title">📊 Bản đồ dự báo & Giải pháp quy hoạch</div><div class="timeline-text">Dự báo xu hướng UHI + chiến lược giảm thiểu: tăng xanh, vật liệu thân thiện, cải thiện thông gió</div></div>
+  </div>
+
+  <!-- Thesis Structure -->
+  <h3 style="margin:32px 0 16px;font-size:18px;color:var(--primary)">Cấu trúc luận văn</h3>
+  <div>
+    <div class="chapter-card"><div class="chapter-num" style="background:rgba(249,115,22,.1);color:var(--accent)">1</div><div class="chapter-info"><div class="chapter-name">Mở đầu</div></div></div>
+    <div class="chapter-card"><div class="chapter-num" style="background:rgba(6,182,212,.1);color:var(--accent2)">2</div><div class="chapter-info"><div class="chapter-name">Tổng quan nghiên cứu và cơ sở lý thuyết</div></div></div>
+    <div class="chapter-card"><div class="chapter-num" style="background:rgba(139,92,246,.1);color:var(--accent3)">3</div><div class="chapter-info"><div class="chapter-name">Phương pháp nghiên cứu</div></div></div>
+    <div class="chapter-card"><div class="chapter-num" style="background:rgba(239,68,68,.1);color:#ef4444">4</div><div class="chapter-info"><div class="chapter-name">Kết quả và thảo luận</div></div></div>
+    <div class="chapter-card"><div class="chapter-num" style="background:rgba(34,197,94,.1);color:#22c55e">5</div><div class="chapter-info"><div class="chapter-name">Kết luận và kiến nghị</div></div></div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="section" id="refs">
+  <div class="section-header">
+    <div class="section-tag tag-purple">V. Tài liệu tham khảo</div>
+    <h2 class="section-title">Nguồn nghiên cứu</h2>
+  </div>
+  <div class="tabs" style="margin-bottom:16px">
+    <button class="tab-btn active" onclick="filterRefs('all',this)">Tất cả</button>
+    <button class="tab-btn" onclick="filterRefs('intl',this)">Quốc tế</button>
+    <button class="tab-btn" onclick="filterRefs('vn',this)">Trong nước</button>
+    <button class="tab-btn" onclick="filterRefs('book',this)">Sách</button>
+  </div>
+  <div id="refList">
+    <div class="ref-item" data-type="book" onclick="this.classList.toggle('expanded')"><div class="ref-author">Howard, L. (1833)</div><div class="ref-title">The Climate of London</div><div class="ref-summary">Công trình tiên phong mô tả và định danh UHI tại London. Đặt nền móng cho khí hậu học đô thị.</div></div>
+    <div class="ref-item" data-type="book" onclick="this.classList.toggle('expanded')"><div class="ref-author">Oke, T. R. (1987)</div><div class="ref-title">Boundary Layer Climates</div><div class="ref-summary">Tài liệu toàn diện về khí hậu lớp biên, cân bằng năng lượng, truyền nhiệt/khối. Chương khí hậu đô thị.</div></div>
+    <div class="ref-item" data-type="intl" onclick="this.classList.toggle('expanded')"><div class="ref-author">Stewart & Oke (2012)</div><div class="ref-title">Local Climate Zones for Urban Temperature Studies</div><div class="ref-summary">Giới thiệu LCZ — hệ thống phân loại đô thị/nông thôn theo hình thái và vật liệu bề mặt.</div></div>
+    <div class="ref-item" data-type="intl" onclick="this.classList.toggle('expanded')"><div class="ref-author">Voogt & Oke (2003)</div><div class="ref-title">Thermal remote sensing of urban climates</div><div class="ref-summary">Tổng quan viễn thám nhiệt trong nghiên cứu UHI: nguyên lý, cảm biến, phương pháp suy ra LST.</div></div>
+    <div class="ref-item" data-type="intl" onclick="this.classList.toggle('expanded')"><div class="ref-author">Peng et al. (2012)</div><div class="ref-title">Surface UHI across 419 global big cities</div><div class="ref-summary">Phân tích UHI bề mặt 419 thành phố lớn toàn cầu. UHI phổ biến, cường độ liên hệ chặt lớp phủ đất.</div></div>
+    <div class="ref-item" data-type="intl" onclick="this.classList.toggle('expanded')"><div class="ref-author">Tran et al. (2017)</div><div class="ref-title">Characterizing UHI in HCMC using Landsat data</div><div class="ref-summary">Nghiên cứu quan trọng về UHI tại TPHCM bằng Landsat — tài liệu tham khảo trực tiếp.</div></div>
+    <div class="ref-item" data-type="intl" onclick="this.classList.toggle('expanded')"><div class="ref-author">Li et al. (2019)</div><div class="ref-title">Impacts of 3D urban morphology on UHI in Xiamen</div><div class="ref-summary">Hình thái đô thị 3D ảnh hưởng UHI. Cấu trúc 3D đóng vai trò quan trọng hình thành và duy trì UHI.</div></div>
+    <div class="ref-item" data-type="vn" onclick="this.classList.toggle('expanded')"><div class="ref-author">Nguyễn Thị Kim Loan et al. (2018)</div><div class="ref-title">Biến động đảo nhiệt đô thị bề mặt tại TPHCM</div><div class="ref-summary">Nghiên cứu tiên phong trong nước về UHI bề mặt TPHCM bằng ảnh Landsat.</div></div>
+    <div class="ref-item" data-type="vn" onclick="this.classList.toggle('expanded')"><div class="ref-author">Nguyễn Thị Kim Loan et al. (2021)</div><div class="ref-title">Dự báo đảo nhiệt đô thị tại TPHCM bằng mô hình học máy</div><div class="ref-summary">Một trong số ít nghiên cứu trong nước ứng dụng ML dự báo UHI tại TPHCM.</div></div>
+  </div>
+</section>
+
+<div class="footer">
+  <p>Lê Ngọc Hân — MSHV: 242831050103 — ĐHQG-HCM · Trường ĐH KHXH&NV</p>
+  <p>Hướng dẫn khoa học: TS Lê Thanh Hòa · TS Trần Thị Kim</p>
+  <p style="margin-top:8px;color:var(--text-light)">Trang web tương tác — Nghiên cứu Đảo nhiệt đô thị tại TPHCM</p>
+</div>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Particles
+const pc=document.getElementById('particles');
+const colors=['#f97316','#06b6d4','#8b5cf6','#22c55e','#ef4444'];
+for(let i=0;i<30;i++){const p=document.createElement('div');p.className='particle';p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;background:${colors[i%5]};animation-delay:${Math.random()*8}s;animation-duration:${6+Math.random()*6}s;width:${2+Math.random()*4}px;height:${2+Math.random()*4}px;`;pc.appendChild(p)}
+
+// Scroll progress & nav
+const nav=document.getElementById('nav'),pb=document.getElementById('progressBar'),bt=document.getElementById('backTop');
+const navLinks=document.querySelectorAll('.nav-links a');
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  pb.style.width=(window.scrollY/h*100)+'%';
+  nav.classList.toggle('scrolled',window.scrollY>50);
+  bt.classList.toggle('visible',window.scrollY>500);
+  let current='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)current=s.id});
+  navLinks.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+current)a.classList.add('active')});
+});
+
+// Tabs
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('#methodTabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Accordion
+function toggleAccordion(btn){
+  const wasActive=btn.classList.contains('active');
+  document.querySelectorAll('.accordion-btn').forEach(b=>{b.classList.remove('active');b.nextElementSibling.classList.remove('open')});
+  if(!wasActive){btn.classList.add('active');btn.nextElementSibling.classList.add('open')}
+}
+
+// Filter references
+function filterRefs(type,btn){
+  document.querySelectorAll('#refs .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.ref-item').forEach(item=>{
+    if(type==='all')item.style.display='';
+    else item.style.display=item.dataset.type===type?'':'none';
+  });
+}
+
+// Smooth scroll
+navLinks.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+</script>
+</body>
+</html>
