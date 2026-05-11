@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -119,14 +119,10 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:v
 .back-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:.3s;z-index:50}
 .back-top.visible{display:flex}.back-top:hover{transform:translateY(-3px)}
 /* Scroll Reveal */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
-.reveal-left.visible{opacity:1;transform:translateX(0)}
-.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
-.reveal-right.visible{opacity:1;transform:translateX(0)}
-.reveal-scale{opacity:0;transform:scale(.9);transition:opacity .7s ease,transform .7s ease}
-.reveal-scale.visible{opacity:1;transform:scale(1)}
+.reveal{opacity:1;transform:translateY(0);transition:opacity .7s ease,transform .7s ease}.reveal.reveal-hidden{opacity:0;transform:translateY(40px)}
+.reveal-left{opacity:1;transform:translateX(0);transition:opacity .7s ease,transform .7s ease}.reveal-left.reveal-hidden{opacity:0;transform:translateX(-40px)}
+.reveal-right{opacity:1;transform:translateX(0);transition:opacity .7s ease,transform .7s ease}.reveal-right.reveal-hidden{opacity:0;transform:translateX(40px)}
+.reveal-scale{opacity:1;transform:scale(1);transition:opacity .7s ease,transform .7s ease}.reveal-scale.reveal-hidden{opacity:0;transform:scale(.9)}
 /* Hero BG Image */
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.15;filter:blur(2px) brightness(1.2);z-index:1}
 /* Section Dividers */
@@ -672,16 +668,13 @@ navLinks.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.q
 
 // Scroll Reveal Animation
 const revealEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');
-const revealObserver=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(el=>el.classList.add('reveal-hidden'));
+const revealObserver=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('reveal-hidden');e.target.classList.add('visible');revealObserver.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
 revealEls.forEach(el=>revealObserver.observe(el));
-
-// Stagger reveal children
-const staggerEls=document.querySelectorAll('.grid-2,.grid-3,.stat-row,.abbr-grid,.flow-steps');
-staggerEls.forEach(container=>{if(!container.classList.contains('reveal')&&!container.classList.contains('reveal-scale'))return;const children=container.children;Array.from(children).forEach((child,i)=>{child.style.opacity='0';child.style.transform='translateY(20px)';child.style.transition=`all .5s ease ${i*0.08}s'});const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){Array.from(children).forEach((child)=>{child.style.opacity='1';child.style.transform='translateY(0)'});obs.unobserve(e.target)}})},{threshold:0.1});obs.observe(container)});
 
 // Counter Animation
 const counters=document.querySelectorAll('.stat-value');
-const counterObserver=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target;const text=el.textContent;const match=text.match(/([\d.]+)/);if(match){const target=parseFloat(match[1]);const prefix=text.substring(0,text.indexOf(match[1]));const suffix=text.substring(text.indexOf(match[1])+match[1].length);const isFloat=text.includes('.');let current=0;const duration=1500;const start=performance.now();function update(now){const elapsed=now-start;const progress=Math.min(elapsed/duration,1);const eased=1-Math.pow(1-progress,3);current=target*eased;el.textContent=prefix+(isFloat?current.toFixed(1):Math.round(current))+suffix;if(progress<1)requestAnimationFrame(update)}requestAnimationFrame(update)}counterObserver.unobserve(el)}})},{threshold:0.5});
+const counterObserver=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target;const text=el.textContent.trim();const match=text.match(/([\d.]+)/);if(match){const target=parseFloat(match[1]);const prefix=text.substring(0,text.indexOf(match[1]));const suffix=text.substring(text.indexOf(match[1])+match[1].length);const isFloat=text.includes('.');let current=0;const duration=1500;const start=performance.now();function update(now){const elapsed=now-start;const progress=Math.min(elapsed/duration,1);const eased=1-Math.pow(1-progress,3);current=target*eased;el.textContent=prefix+(isFloat?current.toFixed(1):Math.round(current))+suffix;if(progress<1)requestAnimationFrame(update)}requestAnimationFrame(update)}counterObserver.unobserve(el)}})},{threshold:0.5});
 counters.forEach(c=>counterObserver.observe(c));
 </script>
 </body>
